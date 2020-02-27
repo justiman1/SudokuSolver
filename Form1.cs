@@ -452,7 +452,7 @@ namespace WindowsFormsApp1 {
 						placeholdingKVP.Clear();
 					}
 
-				} catch (Exception er) {
+                } catch (Exception er) {
 					label1.Text = er.ToString();
 				}
 
@@ -500,6 +500,50 @@ namespace WindowsFormsApp1 {
 			}
 			return listEmptyCells;
 		}
+
+        public int getQuadByRowAndCol(int row, int col)
+        {
+            int quad = new int();
+            if(row == 0 && col == 0 || row == 0 && col == 1 || row == 0 && col == 2 /*1*/ || row == 1 && col == 0 || row == 1 && col == 1 || row == 1 && col == 2 /*2*/ || row == 2 && col == 0 || row == 2 && col == 1 || row == 2 && col == 2 /*3*/)
+            {
+                quad = 0;
+            }
+            else if (row == 0 && col == 3 || row == 0 && col == 4 || row == 0 && col == 5 /*1*/ || row == 1 && col == 3 || row == 1 && col == 4 || row == 1 && col == 5 /*2*/ || row == 2 && col == 3 || row == 2 && col == 4 || row == 2 && col == 5 /*3*/)
+            {
+                quad = 1;
+            }
+            else if (row == 0 && col == 6 || row == 0 && col == 7 || row == 0 && col == 8 /*1*/ || row == 1 && col == 6 || row == 1 && col == 7 || row == 1 && col == 8 /*2*/ || row == 2 && col == 6 || row == 2 && col == 7 || row == 2 && col == 8 /*3*/)
+            {
+                quad = 2;
+            }
+            //
+            else if (row == 3 && col == 0 || row == 3 && col == 1 || row == 3 && col == 2 /*1*/ || row == 4 && col == 0 || row == 4 && col == 1 || row == 4 && col == 2 /*2*/ || row == 5 && col == 0 || row == 5 && col == 1 || row == 5 && col == 2 /*3*/)
+            {
+                quad = 3;
+            }
+            else if (row == 3 && col == 3 || row == 3 && col == 4 || row == 3 && col == 5 /*1*/ || row == 4 && col == 3 || row == 4 && col == 4 || row == 4 && col == 5 /*2*/ || row == 5 && col == 3 || row == 5 && col == 4 || row == 5 && col == 5 /*3*/)
+            {
+                quad = 4;
+            }
+            else if (row == 3 && col == 6 || row == 3 && col == 7 || row == 3 && col == 8 /*1*/ || row == 4 && col == 6 || row == 4 && col == 7 || row == 4 && col == 8 /*2*/ || row == 5 && col == 6 || row == 5 && col == 7 || row == 5 && col == 8 /*3*/)
+            {
+                quad = 5;
+            }
+            //
+            else if (row == 6 && col == 0 || row == 6 && col == 1 || row == 6 && col == 2 /*1*/ || row == 7 && col == 0 || row == 7 && col == 1 || row == 7 && col == 2 /*2*/ || row == 8 && col == 0 || row == 8 && col == 1 || row == 8 && col == 2 /*3*/)
+            {
+                quad = 6;
+            }
+            else if (row == 6 && col == 3 || row == 6 && col == 4 || row == 6 && col == 5 /*1*/ || row == 7 && col == 3 || row == 7 && col == 4 || row == 7 && col == 5 /*2*/ || row == 8 && col == 3 || row == 8 && col == 4 || row == 8 && col == 5 /*3*/)
+            {
+                quad = 7;
+            }
+            else if (row == 6 && col == 6 || row == 6 && col == 7 || row == 6 && col == 8 /*1*/ || row == 7 && col == 6 || row == 7 && col == 7 || row == 7 && col == 8 /*2*/ || row == 8 && col == 6 || row == 8 && col == 7 || row == 8 && col == 8 /*3*/)
+            {
+                quad = 8;
+            }
+            return quad;
+        }
 
 		#region Update Counters Method
 		public List<int> updateCounters(int row, int col, int quad) {
